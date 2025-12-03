@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Emotion Detection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    video {
+      border: 2px solid #555;
+      border-radius: 10px;
+      margin: 10px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    canvas {
+      border: 2px solid #555;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    #prediction {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Emotion Detection</h1>
+  <video id="video" autoplay playsinline></video>
+  <br />
+  <button onclick="captureAndPredict()">Predict Emotion</button>
+  <br />
+  <div style="margin-top: 20px;">
+    <h3>Processed by Model</h3>
+    <img id="processed-face" width="48" height="48"
+      style="border: 1px solid #ccc; width: 100px; height: 100px; image-rendering: pixelated; display: none; margin: 0 auto;" />
+  </div>
+  <canvas id="capture" hidden></canvas>
+  <div id="prediction">Prediction: ...</div>
+  <audio id="tts-audio" hidden></audio>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
