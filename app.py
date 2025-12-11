@@ -46,7 +46,7 @@ def preprocess_frame(data_url):
     if len(faces) == 0:
         return None
         
-    # Use the first detected face (or the largest one)
+    # Use the first detected face or the largest one
     (x, y, w, h) = faces[0]
     face_roi = img_np[y:y+h, x:x+w]
     
